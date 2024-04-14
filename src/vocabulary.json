@@ -1,0 +1,58 @@
+[
+    {
+      "korean": "안녕하세요",
+      "french": "Bonjour / Bonsoir",
+      "letter": "annyeonghaseyo"
+    },
+    {
+      "korean": "좋은 아침이에요",
+      "french": "Bonne matinée",
+      "letter": "joeun achimieyo"
+    },
+    {
+      "korean": "좋은 저녁이에요",
+      "french": "Bonne soirée",
+      "letter": "joeun jeonyeogieyo"
+    },
+    {
+      "korean": "감사합니다",
+      "french": "Merci",
+      "letter": "gamsahamnida"
+    },
+    {
+      "korean": "고마워요",
+      "french": "Merci (moins formel)",
+      "letter": "gomawoyo"
+    },
+    {
+      "korean": "천만에요",
+      "french": "De rien",
+      "letter": "cheonmaneyo"
+    },
+    {
+      "korean": "괜찮아요",
+      "french": "C'est rien / Pas de problème",
+      "letter": "gwaenchanayo"
+    },
+    {
+      "korean": "맛있게 드세요",
+      "french": "Bon appétit",
+      "letter": "masitge deuseyo"
+    },
+    {
+      "korean": "맛있게 먹어",
+      "french": "Bon appétit (informel)",
+      "letter": "masitge meogeo"
+    },
+    {
+      "korean": "안녕히 가세요",
+      "french": "Au revoir (quand on part)",
+      "letter": "annyeonghi gaseyo"
+    },
+    {
+      "korean": "안녕히 계세요",
+      "french": "Au revoir (quand quelqu'un d'autre part)",
+      "letter": "annyeonghi gyeseyo"
+    }
+  ]
+  
