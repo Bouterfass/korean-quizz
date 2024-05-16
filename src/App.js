@@ -7,6 +7,7 @@ const Quizz = ({ qs: qs }) => {
   const [ans, setAns] = React.useState('');
   const [step, setStep] = React.useState(0);
   const [showAns, setShowAns] = React.useState(false);
+  const [isCorrect, setIsCorrect] = React.useState(0);
   let parsedData = JSON.parse(qs);
   let questions = Object.values(parsedData);
 
@@ -23,25 +24,35 @@ const Quizz = ({ qs: qs }) => {
         setAns('');  // Réinitialise l'input
         setStep(0);
         setShowAns(false);
+        setIsCorrect(0);
       } else {
         setShowAns(true);
+        if (event.target.value === questions[index]["letter"]) {
+          setIsCorrect(1);
+        } 
+        else {
+          setIsCorrect(-1);
+        }
         setStep(prev => prev + 1);
       }
     }
   }
 
-  return <div className='questions'>
-    {questions[index] ? <p>{questions[index]["french"]}</p> : <p>"Pas de question"</p>}
-    {showAns && <p>{questions[index]["korean"]} </p>}
-    {showAns && <p>{questions[index]["letter"]}</p>}
-    <input
-      type='text'
-      value={ans}
-      onChange={handleInputChange}
-      onKeyDown={handleKeyDown}
-      placeholder='ta réponse'
-    />
-  </div>
+  return (
+    <>
+      <div className='questions'>
+        {questions[index] ? <p>{questions[index]["french"]}</p> : <p>"Pas de question"</p>}
+        {showAns && <p>{questions[index]["korean"]} </p>}
+        {showAns && <p style={{ color: isCorrect === 1 ? "green" : "red" }}>{questions[index]["letter"]}</p>}
+        <input
+          type='text'
+          value={ans}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          placeholder='ta réponse'
+        />
+      </div>
+    </>);
 
 }
 
@@ -67,7 +78,7 @@ function App() {
   }
 
 
-  return (
+  return (<>
     <div className="app">
       <h3>Quizz:</h3>
       <input type="file" onChange={e => handleFileChange(e)} />
@@ -81,6 +92,8 @@ function App() {
         }
       </div>
     </div>
+
+  </>
   );
 }
 

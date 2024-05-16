@@ -30,5 +30,9 @@
 .questions input {
     height: 20px;
     width: 80%;
-    color: green;
+    font-size: 18px;
+}
+
+.questions p {
+    font-size: 45px;
 }
