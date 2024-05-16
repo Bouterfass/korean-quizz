@@ -1,0 +1,34 @@
+.app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.quizz {
+    display: flex;
+    justify-content: center;
+    width: 65%;
+    height: 100vh;
+    padding: 40px;
+}
+
+.questions * {
+    margin-top: 25px;
+}
+
+.questions {
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.questions input {
+    height: 20px;
+    width: 80%;
+    color: green;
+}

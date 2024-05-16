@@ -4,14 +4,44 @@ import React from 'react';
 const Quizz = ({ qs: qs }) => {
 
   const [index, setIndex] = React.useState(0);
+  const [ans, setAns] = React.useState('');
+  const [step, setStep] = React.useState(0);
+  const [showAns, setShowAns] = React.useState(false);
   let parsedData = JSON.parse(qs);
   let questions = Object.values(parsedData);
 
 
-  return <>
-    {questions[index] ? questions[index]["korean"] : "Pas de question"}
-    <button onClick={() => setIndex(index => index + 1)}>Suivant</button>
-  </>
+
+  const handleInputChange = (event) => {
+    setAns(event.target.value);  // Met à jour la réponse à chaque changement dans l'input
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (step === 1) {
+        setIndex(prevIndex => (prevIndex + 1) % questions.length);
+        setAns('');  // Réinitialise l'input
+        setStep(0);
+        setShowAns(false);
+      } else {
+        setShowAns(true);
+        setStep(prev => prev + 1);
+      }
+    }
+  }
+
+  return <div className='questions'>
+    {questions[index] ? <p>{questions[index]["french"]}</p> : <p>"Pas de question"</p>}
+    {showAns && <p>{questions[index]["korean"]} </p>}
+    {showAns && <p>{questions[index]["letter"]}</p>}
+    <input
+      type='text'
+      value={ans}
+      onChange={handleInputChange}
+      onKeyDown={handleKeyDown}
+      placeholder='ta réponse'
+    />
+  </div>
 
 }
 
@@ -38,10 +68,10 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="app">
+      <h3>Quizz:</h3>
       <input type="file" onChange={e => handleFileChange(e)} />
-      <div>
-        <h3>Quizz:</h3>
+      <div className='quizz'>
         {
           jsonData ? (
             <Quizz qs={JSON.stringify(jsonData, null, 2)} />
